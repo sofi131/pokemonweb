@@ -33,6 +33,10 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#menu-movil li:nth-child(-n+2){
+    border-right: 1px solid blue;
+}
+
 /*Media querys*/
 @media screen and (max-width: 376px) {
     .barras-menu {
@@ -52,5 +56,8 @@ header {
     }
     .menu-movil {
         display: none;
+    }
+    #menu-movil li:nth-child(-n+2){
+        border: none;
     }
 }
