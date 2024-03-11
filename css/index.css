@@ -34,7 +34,14 @@ header {
 }
 
 #menu-movil li:nth-child(-n+2){
-    border-right: 1px solid blue;
+    border-right: 1px solid rgb(0, 0, 0);
+}
+#loading{
+    display: block;
+    margin: 0 auto;
+    display: none;
+    width: 50px;
+    height: 50px;
 }
 
 /*Media querys*/
