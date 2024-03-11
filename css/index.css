@@ -1,0 +1,43 @@
+#logo{
+    width: 200px;
+    height: 80px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.barras-menu{
+    display: none;
+}
+.estilo-menu{
+    list-style: none;
+    text-decoration: none;
+}
+.estilo-menu a{
+    display: block;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 20px;
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*Media querys*/
+@media screen and (max-width:376px) {
+    .barras-menu{
+        display:block
+    }
+    h1{
+        display: none; /*Oculta el h1*/
+    }
+    header{
+        justify-content: space-around;
+    }
+    .menu-movil{
+        display: none;
+    }
+}
