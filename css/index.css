@@ -1,43 +1,56 @@
-#logo{
+#logo {
     width: 200px;
     height: 80px;
 }
-header{
+
+header {
     display: flex;
     justify-content: space-between;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.container{
+
+.container {
     width: 80%;
     margin: 0 auto;
 }
-.barras-menu{
+
+.barras-menu {
     display: none;
 }
-.estilo-menu{
+
+.estilo-menu {
     list-style: none;
     text-decoration: none;
+    display: flex;
 }
-.estilo-menu a{
+
+.estilo-menu a {
     display: block;
     text-decoration: none;
     margin: 5px;
     font-size: 20px;
     color: black;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 /*Media querys*/
-@media screen and (max-width:376px) {
-    .barras-menu{
-        display:block
+@media screen and (max-width: 376px) {
+    .barras-menu {
+        display: block
     }
-    h1{
-        display: none; /*Oculta el h1*/
+
+    h1 {
+        display: none;
+        /*Oculta el h1*/
     }
-    header{
+
+    header {
         justify-content: space-around;
     }
-    .menu-movil{
+    .estilo-menu{
+        display: inline;
+    }
+    .menu-movil {
         display: none;
     }
 }
