@@ -64,6 +64,23 @@ header {
     width: 90px;
     height: 90px;
 }
+/* Palante patrás botones */
+.navegacion{
+    text-align: right;
+    margin-right: 15px;
+}
+#next{
+    margin-left: 20px;
+}
+#next,#previous{
+    cursor: pointer;
+}
+.fa-forward-step{
+    margin: 5px;
+}
+.fa-backward-step{
+    margin: 5px;
+}
 
 /*Media querys*/
 @media screen and (max-width: 376px) {
