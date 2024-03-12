@@ -33,10 +33,11 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#menu-movil li:nth-child(-n+2){
+#menu-movil li:nth-child(-n+2) {
     border-right: 1px solid rgb(0, 0, 0);
 }
-#loading{
+
+#loading {
     display: block;
     margin: 0 auto;
     display: none;
@@ -58,13 +59,16 @@ header {
     header {
         justify-content: space-around;
     }
-    .estilo-menu{
+
+    .estilo-menu {
         display: inline;
     }
+
     .menu-movil {
         display: none;
     }
-    #menu-movil li:nth-child(-n+2){
+
+    #menu-movil li:nth-child(-n+2) {
         border: none;
     }
 }
