@@ -1,3 +1,4 @@
-![imagen](https://github.com/sofi131/pokemonweb/assets/91051075/388d8043-814e-4abc-b1ca-e39d6b6308ef)
+![imagen](https://github.com/sofi131/pokemonweb/assets/91051075/a9da163f-b586-4a77-a1ab-37c117a9cd12)
+
 
 
