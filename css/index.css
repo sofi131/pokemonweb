@@ -59,9 +59,11 @@ header {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-/* #containerpk article img{
-    width: 80px;
-} */
+/* las imágenes de los bichos */
+#containerpk article img{
+    width: 90px;
+    height: 90px;
+}
 
 /*Media querys*/
 @media screen and (max-width: 376px) {
