@@ -13,7 +13,7 @@ window.onload = () => {
             document.getElementById("menu-movil").classList.add("menu-movil");
         }
     }
-    //solicitar primeros pokemon
+
     //Solicitar primeros pokemon
     let url = "https://pokeapi.co/api/v2/pokemon";
     //mostramos loading
@@ -28,7 +28,7 @@ window.onload = () => {
         .then(data => {
             document.getElementById("loading").style.display = "none";
             //console.log(data); // Aquí puedes trabajar con los datos de respuesta
-            //for
+            mostrarDatosIniciales(data.results)
             for (const pk of data.results) {
                 if (pokemon[pk.name] == undefined) {
                     pokemon[pk.name] = { url: pk.url }
@@ -41,23 +41,61 @@ window.onload = () => {
         });
 }
 //función para obtener datos -> iterator elemento que recorre el objeto
-function cargarDatosPokemon(params) {
+function cargarDatosPokemon() {
     for (const pk in pokemon) {
         //llamada fetch
         fetch(pokemon[pk].url)
             //convertimos en un json
-            .then(response => {
-                if (!response.ok) {
+            .then(resp => {
+                if (!resp.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();
+                return resp.json();
             })
             .then(datos => {
-                console.log(datos);
-            }).catch(error => {
+                extractInfoPokemon(datos)
+            })
+            .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
     }
 }
+
+//cargar la información de cada pokémon
+function extractInfoPokemon(info) {
+    pokemon[info.name] = {
+        img: info.sprites.front_default,
+        types: info.types.map(t => t.type.name),
+        id: info.id,
+        experience: info.base_experience
+    }
+    let selector="#"+info.name +" img";
+    document.querySelector(selector).src=info.sprites.front_default;
+}
+//muestra nombres iniciales
+function mostrarDatosIniciales(listaPk) {
+    var contenidoPK = "";
+    for (const pk in listaPk) {
+        if (Object.hasOwnProperty.call(listaPk, pk)) {
+            const element = listaPk[pk];
+            contenidoPK += `
+            <article id="${element.name}">
+            <h3>${element.name}</h3>
+            <img src="img/loading.gif" alt="" width="50" height="50">
+            <div>
+                <p><label>Types: </label></p>
+                <p><label>Id: </label></p>
+                <p><label>Experience: </label></p> 
+            </div>
+        </article>`;
+        }
+    }
+    document.getElementById("containerpk").innerHTML=contenidoPK;
+}
+
+
+
+
+
 
 
