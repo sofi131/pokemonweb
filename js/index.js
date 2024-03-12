@@ -1,6 +1,6 @@
 var pokemon = {};
 
-
+//aquí ponemos lo que usa el DOM
 window.onload = () => {
     let menu = document.getElementById("barras-menu");
 
@@ -40,10 +40,24 @@ window.onload = () => {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
- //función para obtener datos -> iterator elemento que recorre el objeto
+//función para obtener datos -> iterator elemento que recorre el objeto
 function cargarDatosPokemon(params) {
-    for (const iterator in pokemon) {
-        console.log(iterator)
+    for (const pk in pokemon) {
+        //llamada fetch
+        fetch(pokemon[pk].url)
+            //convertimos en un json
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(datos => {
+                console.log(datos);
+            }).catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
     }
 }
+
 
