@@ -34,9 +34,16 @@ window.onload = () => {
                     pokemon[pk.name] = { url: pk.url }
                 }
             }
+            cargarDatosPokemon();
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
+}
+ //función para obtener datos -> iterator elemento que recorre el objeto
+function cargarDatosPokemon(params) {
+    for (const iterator in pokemon) {
+        console.log(iterator)
+    }
 }
 
