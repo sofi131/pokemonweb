@@ -1,49 +1,102 @@
-*{
+/* Estilos generales */
+* {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body{
+
+body {
     background-color: rgb(234, 235, 248);
 }
 
 /* Estilos para el slide con autor y enlaces */
 .slide {
-    width: 80%;
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo transparente */
-    padding: 50px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
-    position: absolute; /* Posicionamiento absoluto */
-    top: 50%; /* Colocar en la mitad superior de la página */
-    left: 50%; /* Colocar en el centro horizontal de la página */
-    transform: translate(-50%, -50%); /* Centrar la caja */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Fondo transparente */
+    padding: 50px;
+    /* Espaciado interno */
+    /*border-radius: 10px;  Bordes redondeados */
+    position: absolute;
+    /* Posicionamiento absoluto */
+    top: 50%;
+    /* Colocar en la mitad superior de la página */
+    left: 50%;
+    /* Colocar en el centro horizontal de la página */
+    transform: translate(-50%, -50%);
+    /* Centrar la caja */
+    display: flex;
+    /* Usar flexbox para ajustar el contenido */
 }
 
-
+.slide .left-content {
+    width: 50%;
+    /* Ocupar el 50% del slide */
+    padding-right: 20px;
+    /* Espaciado derecho para separar del texto */
+}
 
 .slide h1 {
-    text-align: center; /* Texto centrado */
+    text-align: center;
+    /* Texto centrado */
     font-size: 30pt;
-    
 }
 
 .txt-wrapper {
-    text-align: center; /* Texto centrado */
+    margin-top: 250px;
+    text-align: center;
+    /* Texto centrado */
+    width: 100%;
+    /* Ocupar todo el ancho disponible */
 }
 
 .txt-wrapper ul {
-    list-style: none; /* Eliminar viñetas */
-    padding: 0; /* Eliminar espaciado interno */
+    list-style: none;
+    /* Eliminar viñetas */
+    padding: 0;
+    /* Eliminar espaciado interno */
 }
 
 .txt-wrapper ul li {
-    text-align: center; /* Texto centrado */
+    text-align: center;
+    /* Texto centrado */
 }
 
 .txt-wrapper ul li a {
-    text-decoration: none; /* Sin subrayado */
-    color: black; /* Color del texto */
-    transition: color 0.3s ease; /* Transición suave */
+    text-decoration: none;
+    /* Sin subrayado */
+    color: black;
+    /* Color del texto */
+    transition: color 0.3s ease;
+    /* Transición suave */
 }
 
 .txt-wrapper ul li a:hover {
-    color: #333; /* Color del texto al pasar el ratón */
+   
+    color: #333;
+    /* Color del texto al pasar el ratón */
 }
+
+  
+
+
+  /* Mierda si va */
+
+  
+  span {
+    
+    color: white;
+    font-size: 1rem;
+    display: inline-block;
+  }
+  
+  span.vertical-shake:hover {
+    animation: vertical-shaking 0.35s infinite;
+  }
+  
+  @keyframes vertical-shaking {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(5px); }
+    50% { transform: translateY(-5px); }
+    75% { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+  }
