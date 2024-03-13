@@ -1,0 +1,49 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: rgb(234, 235, 248);
+}
+
+/* Estilos para el slide con autor y enlaces */
+.slide {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo transparente */
+    padding: 50px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Colocar en la mitad superior de la página */
+    left: 50%; /* Colocar en el centro horizontal de la página */
+    transform: translate(-50%, -50%); /* Centrar la caja */
+}
+
+
+
+.slide h1 {
+    text-align: center; /* Texto centrado */
+    font-size: 30pt;
+    
+}
+
+.txt-wrapper {
+    text-align: center; /* Texto centrado */
+}
+
+.txt-wrapper ul {
+    list-style: none; /* Eliminar viñetas */
+    padding: 0; /* Eliminar espaciado interno */
+}
+
+.txt-wrapper ul li {
+    text-align: center; /* Texto centrado */
+}
+
+.txt-wrapper ul li a {
+    text-decoration: none; /* Sin subrayado */
+    color: black; /* Color del texto */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.txt-wrapper ul li a:hover {
+    color: #333; /* Color del texto al pasar el ratón */
+}
