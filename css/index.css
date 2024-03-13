@@ -1,6 +1,9 @@
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+body{
+    background-color: rgb(214, 218, 255);
+}
 #logo {
     width: 200px;
     height: 80px;
@@ -34,8 +37,12 @@ header {
     color: black;
 }
 
+#menu-movil li {
+    height: 35px; /* Ajusta la altura según sea necesario */
+}
+
 #menu-movil li:nth-child(-n+2) {
-    border-right: 1px solid rgb(0, 0, 0);
+    border-right: 1.5px solid rgb(0, 0, 0);
 }
 
 #loading {
@@ -45,19 +52,22 @@ header {
     margin: 0 auto;
     display: none;
 }
+/* Artículo de los pokémones */
 #containerpk article{
     width: 25%;
-    border: 1px solid blue;
+    border: 1px solid rgb(172, 148, 236);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 15px;
+    background-color: white;
 }
 #containerpk{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    
 }
 /* las imágenes de los bichos */
 #containerpk article img{
@@ -81,6 +91,22 @@ header {
 .fa-backward-step{
     margin: 5px;
 }
+
+button {
+    font-size: 14px; /* Tamaño de la letra */
+    color: #fff; /* Color del texto */
+    background-color: #7f54f3; /* Color de fondo del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilos al pasar el mouse por encima */
+button:hover {
+    background-color: #4500b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
 
 /*Media querys*/
 @media screen and (max-width: 376px) {

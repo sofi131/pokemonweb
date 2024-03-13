@@ -97,7 +97,7 @@ function cargarDatosPokemon() {
         }
     }
 }
-// Cargar la información de cada Pokémon
+// Cargar la información de cada Pokémon - no tenemos que sustituir porque sino la url se va a la pupú
 function extractInfoPokemon(info) {
     pokemon[info.name] = {
         img: info.sprites.front_default,
