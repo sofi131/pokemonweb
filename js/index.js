@@ -30,7 +30,7 @@ window.onload = () => {
     getDataUrl(url);
 }
 
-// Pide info de la URL e
+// Pide info de la URL
 function getDataUrl(url) {
     if (document.getElementById("loading"))
         document.getElementById("loading").style.display = "block"
