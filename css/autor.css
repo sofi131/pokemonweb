@@ -71,32 +71,63 @@ body {
 }
 
 .txt-wrapper ul li a:hover {
-   
     color: #333;
     /* Color del texto al pasar el ratón */
 }
 
-  
+/* Esto no creo que vaya ni de coña */
 
 
-  /* Mierda si va */
+#scrollDown {
+    transition: transform 0.5s ease-in-out;
+}
 
-  
-  span {
-    
+#scrollDown.scrolled {
+    transform: translateY(100%);
+}
+
+#scrollUp {
+    transition: transform 0.5s ease-in-out;
+}
+
+#scrollUp.scrolled {
+    transform: translateY(-100%);
+}
+
+
+
+/* Animación agitación */
+span {
     color: white;
     font-size: 1rem;
     display: inline-block;
-  }
-  
-  span.vertical-shake:hover {
+}
+
+span.vertical-shake:hover {
+    color: purple;
     animation: vertical-shaking 0.35s infinite;
-  }
-  
-  @keyframes vertical-shaking {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(5px); }
-    50% { transform: translateY(-5px); }
-    75% { transform: translateY(5px); }
-    100% { transform: translateY(0); }
-  }
+}
+
+@keyframes vertical-shaking {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    75% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+

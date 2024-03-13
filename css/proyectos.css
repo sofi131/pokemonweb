@@ -1,0 +1,32 @@
+/* Estilos generales */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(203, 203, 216);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.grid-item {
+    background-color: #f0f0f0;
+    padding: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.grid-item:hover {
+    background-color: #9088b1;
+}
