@@ -1,32 +1,52 @@
-
 var pokemon = {};
 var next = "";
 var previous = "";
+
+// Función para buscar Pokémon
+function searchPokemon() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+    // Ocultar todas las tarjetas de Pokémon
+    const allPokemonArticles = document.querySelectorAll('#containerpk article');
+    allPokemonArticles.forEach(article => {
+        article.style.display = 'none';
+    });
+
+    // Mostrar solo la tarjeta del Pokémon buscado
+    const articleToShow = document.getElementById(searchTerm);
+    if (articleToShow) {
+        articleToShow.style.display = 'block';
+    } else {
+        alert('No se encontró ningún Pokémon con ese nombre.');
+    }
+}
+
+
 // Aquí ponemos lo que usa el DOM
 window.onload = () => {
-
     let menu = document.getElementById("barras-menu");
 
     menu.onclick = () => {
-        // Objeto - método classList - propiedad ya que no tiene paréntesis
-        // Contains es un método que contiene el objeto menú móvil
         if (document.getElementById("menu-movil").classList.contains("menu-movil")) {
             document.getElementById("menu-movil").classList.remove("menu-movil");
         } else {
             document.getElementById("menu-movil").classList.add("menu-movil");
         }
     }
-    let buttonNext=document.getElementById("next");
-    buttonNext.onclick=()=>{
+
+    let buttonNext = document.getElementById("next");
+    buttonNext.onclick = () => {
         getDataUrl(next)
     }
-    let buttonPrevious=document.getElementById("previous");
-    buttonPrevious.onclick=()=>{
+
+    let buttonPrevious = document.getElementById("previous");
+    buttonPrevious.onclick = () => {
         getDataUrl(previous)
     }
+
     // Solicitar primeros Pokémon
     let url = "https://pokeapi.co/api/v2/pokemon";
-    //mostramos loading
+    // Mostrar loading
     getDataUrl(url);
 }
 
@@ -42,24 +62,23 @@ function getDataUrl(url) {
             return resp.json();
         })
         .then(data => {
-            // Datos palante => patrás <=
-            if(data.next==null){
-                document.getElementById("next").style.display="none";
-                 // console.log(data); // Aquí puedes trabajar con los datos de respuesta
-            }else{
-                document.getElementById("next").style.display="inline";           
+            if (data.next == null) {
+                document.getElementById("next").style.display = "none";
+            } else {
+                document.getElementById("next").style.display = "inline";
             }
             next = data.next;
-            if(data.previous==null){
-                document.getElementById("previous").style.display="none";
-            }else{
-                document.getElementById("previous").style.display="inline";           
+            if (data.previous == null) {
+                document.getElementById("previous").style.display = "none";
+            } else {
+                document.getElementById("previous").style.display = "inline";
             }
             previous = data.previous;
             if (document.getElementById("loading"))
                 document.getElementById("loading").style.display = "none";
-            //console.log(data); // Aquí puedes trabajar con los datos de respuesta
+            // Mostrar datos iniciales
             mostrarDatosIniciales(data.results)
+            // Cargar datos de Pokémon
             for (const pk of data.results) {
                 if (pokemon[pk.name] == undefined) {
                     pokemon[pk.name] = { url: pk.url }
@@ -89,7 +108,8 @@ function fetchPokemonRetardada(url) {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
-// Función para obtener datos -> iterator elemento que recorre el objeto
+
+// Función para cargar datos de Pokémon
 function cargarDatosPokemon() {
     for (const pk in pokemon) {
         if (pk.img == undefined) {
@@ -97,7 +117,8 @@ function cargarDatosPokemon() {
         }
     }
 }
-// Cargar la información de cada Pokémon - no tenemos que sustituir porque sino la url se va a la pupú
+
+// Función para extraer información de los Pokémon
 function extractInfoPokemon(info) {
     pokemon[info.name] = {
         img: info.sprites.front_default,
@@ -114,7 +135,8 @@ function extractInfoPokemon(info) {
     textos[2].innerHTML = pokemon[info.name].experience;
 
 }
-// Muestra nombres iniciales
+
+// Función para mostrar nombres iniciales de los Pokémon
 function mostrarDatosIniciales(listaPk) {
     var contenidoPK = "";
     for (const pk in listaPk) {
@@ -134,30 +156,3 @@ function mostrarDatosIniciales(listaPk) {
     }
     document.getElementById("containerpk").innerHTML = contenidoPK;
 }
-
-// Función para buscar Pokémon
-function searchPokemon() {
-    const searchTerm = document.getElementById('search-input').value.toLowerCase();
-
-    // Ocultar todas las tarjetas de Pokémon
-    const allPokemonArticles = document.querySelectorAll('#containerpk article');
-    allPokemonArticles.forEach(article => {
-        article.style.display = 'none';
-    });
-
-    // Mostrar solo la tarjeta del Pokémon buscado
-    const articleToShow = document.getElementById(searchTerm);
-    if (articleToShow) {
-        articleToShow.style.display = 'block';
-    } else {
-        alert('No se encontró ningún Pokémon con ese nombre.');
-    }
-}
-
-// Agregar evento de clic al botón de búsqueda
-document.getElementById('search-button').addEventListener('click', searchPokemon);
-
-
-
-
-
