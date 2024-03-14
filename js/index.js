@@ -21,39 +21,11 @@ function searchPokemon() {
     }
 }
 
-
-// Aquí ponemos lo que usa el DOM
-window.onload = () => {
-    let menu = document.getElementById("barras-menu");
-
-    menu.onclick = () => {
-        if (document.getElementById("menu-movil").classList.contains("menu-movil")) {
-            document.getElementById("menu-movil").classList.remove("menu-movil");
-        } else {
-            document.getElementById("menu-movil").classList.add("menu-movil");
-        }
-    }
-
-    let buttonNext = document.getElementById("next");
-    buttonNext.onclick = () => {
-        getDataUrl(next)
-    }
-
-    let buttonPrevious = document.getElementById("previous");
-    buttonPrevious.onclick = () => {
-        getDataUrl(previous)
-    }
-
-    // Solicitar primeros Pokémon
-    let url = "https://pokeapi.co/api/v2/pokemon";
-    // Mostrar loading
-    getDataUrl(url);
-}
-
 // Pide info de la URL
 function getDataUrl(url) {
-    if (document.getElementById("loading"))
-        document.getElementById("loading").style.display = "block"
+    if (document.getElementById("loading")) {
+        document.getElementById("loading").style.display = "block";
+    }
     fetch(url)
         .then(resp => {
             if (!resp.ok) {
@@ -74,18 +46,18 @@ function getDataUrl(url) {
                 document.getElementById("previous").style.display = "inline";
             }
             previous = data.previous;
-            if (document.getElementById("loading"))
+            if (document.getElementById("loading")) {
                 document.getElementById("loading").style.display = "none";
+            }
             // Mostrar datos iniciales
-            mostrarDatosIniciales(data.results)
+            mostrarDatosIniciales(data.results);
             // Cargar datos de Pokémon
             for (const pk of data.results) {
                 if (pokemon[pk.name] == undefined) {
-                    pokemon[pk.name] = { url: pk.url }
+                    pokemon[pk.name] = { url: pk.url };
                 }
             }
             cargarDatosPokemon();
-
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -102,7 +74,6 @@ function fetchPokemonRetardada(url) {
         })
         .then(datos => {
             extractInfoPokemon(datos);
-
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -125,7 +96,7 @@ function extractInfoPokemon(info) {
         types: info.types.map(t => t.type.name),
         id: info.id,
         experience: info.base_experience
-    }
+    };
     let selector = "#" + info.name + " img";
     document.querySelector(selector).src = info.sprites.front_default;
     selector = "#" + info.name + " span";
@@ -133,26 +104,58 @@ function extractInfoPokemon(info) {
     textos[0].innerHTML = pokemon[info.name].types;
     textos[1].innerHTML = pokemon[info.name].id;
     textos[2].innerHTML = pokemon[info.name].experience;
-
 }
 
 // Función para mostrar nombres iniciales de los Pokémon
 function mostrarDatosIniciales(listaPk) {
     var contenidoPK = "";
-    for (const pk in listaPk) {
-        if (Object.hasOwnProperty.call(listaPk, pk)) {
-            const element = listaPk[pk];
-            contenidoPK += `
-            <article id="${element.name}">
-                <h3>${element.name}</h3>
-                <img src="img/loading.gif" alt="">
-                <div>
-                    <p><label>Types: </label><span></span></p>
-                    <p><label>Id: </label><span></span></p>
-                    <p><label>Experience: </label><span></span></p> 
-                </div>
-            </article>`;
-        }
+    for (const pk of listaPk) {
+        contenidoPK += `
+        <article id="${pk.name}">
+            <h3>${pk.name}</h3>
+            <img src="img/loading.gif" alt="">
+            <div>
+                <p><label>Types: </label><span></span></p>
+                <p><label>Id: </label><span></span></p>
+                <p><label>Experience: </label><span></span></p> 
+            </div>
+        </article>`;
     }
     document.getElementById("containerpk").innerHTML = contenidoPK;
 }
+
+// Aquí ponemos lo que usa el DOM
+window.onload = () => {
+    let menu = document.getElementById("barras-menu");
+
+    menu.onclick = () => {
+        if (document.getElementById("menu-movil").classList.contains("menu-movil")) {
+            document.getElementById("menu-movil").classList.remove("menu-movil");
+        } else {
+            document.getElementById("menu-movil").classList.add("menu-movil");
+        }
+    };
+
+    let buttonNext = document.getElementById("next");
+    buttonNext.onclick = () => {
+        getDataUrl(next);
+    };
+
+    let buttonPrevious = document.getElementById("previous");
+    buttonPrevious.onclick = () => {
+        getDataUrl(previous);
+    };
+
+    // Solicitar primeros Pokémon
+    let url = "https://pokeapi.co/api/v2/pokemon";
+    // Mostrar loading
+    getDataUrl(url);
+
+    // Agregar evento de clic al botón de búsqueda
+    const searchButton = document.getElementById('search-button');
+    if (searchButton) {
+        searchButton.addEventListener('click', searchPokemon);
+    } else {
+        console.error('No se encontró el botón de búsqueda.');
+    }
+};
