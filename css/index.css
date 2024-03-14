@@ -62,6 +62,7 @@ header {
     align-items: center;
     margin-top: 15px;
     background-color: white;
+    text-align: center;
 }
 #containerpk{
     display: flex;
