@@ -134,3 +134,29 @@ function mostrarDatosIniciales(listaPk) {
     }
     document.getElementById("containerpk").innerHTML = contenidoPK;
 }
+
+// Función para buscar Pokémon -> que no va jajan't
+function searchPokemon() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+    // Ocultar todas las tarjetas de Pokémon
+    const allPokemonArticles = document.querySelectorAll('#containerpk article');
+    allPokemonArticles.forEach(article => {
+        article.style.display = 'none';
+    });
+
+    // Mostrar solo la tarjeta del Pokémon buscado
+    const articleToShow = document.getElementById(searchTerm);
+    if (articleToShow) {
+        articleToShow.style.display = 'block';
+    } else {
+        alert('No se encontró ningún Pokémon con ese nombre.');
+    }
+}
+
+// Agregar evento de clic al botón de búsqueda
+document.getElementById('search-button').addEventListener('click', searchPokemon);
+
+
+
+

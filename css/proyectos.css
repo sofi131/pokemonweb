@@ -30,3 +30,34 @@ body {
 .grid-item:hover {
     background-color: #9088b1;
 }
+
+/* Nav */
+
+/* Estilos para el nav */
+nav {
+    position: absolute;
+    top: 20px;
+    left: 240px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline; /* Mostrar en línea horizontal */
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: none; /* Eliminar subrayado al pasar el ratón */
+}

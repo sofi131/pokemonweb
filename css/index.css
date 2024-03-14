@@ -143,3 +143,18 @@ button:hover {
         align-items: center;
     }
 }
+
+.search-container{
+    margin-top: 2rem;
+    margin-left: 20rem;
+}
+/* Botón de búsqueda */
+/* Estilos para el campo de entrada de búsqueda */
+.search-container input[type="text"] {
+    width: 300px; /* Ancho deseado del campo de entrada */
+    padding: 8px; /* Ajuste de relleno (padding) */
+    margin-right: 10px; /* Espacio a la derecha del campo de entrada */
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
