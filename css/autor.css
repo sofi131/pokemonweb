@@ -76,8 +76,6 @@ body {
 }
 
 /* Esto no creo que vaya ni de coña */
-
-
 #scrollDown {
     transition: transform 0.5s ease-in-out;
 }
@@ -93,8 +91,6 @@ body {
 #scrollUp.scrolled {
     transform: translateY(-100%);
 }
-
-
 
 /* Animación agitación */
 span {
@@ -130,4 +126,57 @@ span.vertical-shake:hover {
     }
 }
 
+/* Media querys */
+/* Media query para dispositivos más pequeños */
+@media (max-width: 767px) {
+    .slide {
+        padding: 20px; /* Reducimos el relleno en dispositivos pequeños */
+    }
+
+    .slide .left-content {
+        width: 100%; /* Ocupar todo el ancho en dispositivos pequeños */
+        padding-right: 0; /* Eliminamos el espaciado derecho */
+        margin-bottom: 20px; /* Agregamos margen inferior para separar del texto */
+    }
+
+    .txt-wrapper {
+        margin-top: 0; /* Eliminamos el margen superior */
+        text-align: left; /* Alineamos el texto a la izquierda */
+    }
+
+    #scrollDown,
+    #scrollUp {
+        display: none; /* Ocultamos la animación de desplazamiento en dispositivos pequeños */
+    }
+}
+
+/* Estilos para el nav */
+/* Estilos para el nav */
+nav {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline; /* Mostrar en línea horizontal */
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: none; /* Eliminar subrayado al pasar el ratón */
+}
 
