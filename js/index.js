@@ -135,7 +135,7 @@ function mostrarDatosIniciales(listaPk) {
     document.getElementById("containerpk").innerHTML = contenidoPK;
 }
 
-// Función para buscar Pokémon -> que no va jajan't
+// Función para buscar Pokémon
 function searchPokemon() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
 
@@ -156,6 +156,7 @@ function searchPokemon() {
 
 // Agregar evento de clic al botón de búsqueda
 document.getElementById('search-button').addEventListener('click', searchPokemon);
+
 
 
 
