@@ -153,8 +153,25 @@ nav a:hover {
         text-align: left;
     }
 
-    #scrollDown,
-    #scrollUp {
-        display: none;
+    nav {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    nav ul {
+        display: block;
+        margin: auto;
+    }
+
+    nav li {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #containerpk article {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }

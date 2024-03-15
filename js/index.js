@@ -12,11 +12,16 @@ function searchPokemon() {
         article.style.display = 'none';
     });
 
-    // Mostrar solo la tarjeta del Pokémon buscado
-    const articleToShow = document.getElementById(searchTerm);
-    if (articleToShow) {
-        articleToShow.style.display = 'block';
-    } else {
+    // Mostrar solo las tarjetas de Pokémon que coinciden con la búsqueda
+    const filteredPokemons = Object.keys(pokemon).filter(pk => pk.includes(searchTerm));
+    filteredPokemons.forEach(pk => {
+        const articleToShow = document.getElementById(pk);
+        if (articleToShow) {
+            articleToShow.style.display = 'block';
+        }
+    });
+
+    if (filteredPokemons.length === 0) {
         alert('No se encontró ningún Pokémon con ese nombre.');
     }
 }
@@ -157,5 +162,13 @@ window.onload = () => {
         searchButton.addEventListener('click', searchPokemon);
     } else {
         console.error('No se encontró el botón de búsqueda.');
+    }
+
+    // Agregar evento de entrada al campo de búsqueda
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', searchPokemon);
+    } else {
+        console.error('No se encontró el campo de búsqueda.');
     }
 };
